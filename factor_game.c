@@ -26,11 +26,8 @@ int human_choose(int avoid) {
     while (choosing) {
         printf("Please enter a number other than %d between 1 and 1000\n", avoid);
         scanf("%d", &humanNumber);
-        // If number is invalid, try agian
-        if (humanNumber > 1000 || humanNumber < 0 || humanNumber == avoid) {
-            printf("Invalid Number: Try again\n");
-        } else {
-            // If number is valid, return number
+        // Makes sure number is valid
+        if (humanNumber <= 1000 && humanNumber >= 0 && humanNumber != avoid) {
             choosing = false;
         }
     }
@@ -40,7 +37,7 @@ int human_choose(int avoid) {
 int count_factor(int num) {
     int count = 0;
     // Counts the factors of num
-    for (int i=1; i < num; i ++) {
+    for (int i=1; i <= num; i ++) {
         if (num % i == 0) {
             count ++;
         }
